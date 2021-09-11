@@ -5,7 +5,8 @@ const errorHandler = require('./middleware/error');
 var cors = require('cors')
 
 connectDB();
-const app=express().use('*', cors());
+const app=express();
+app.use('*',cors());
 app.options('*', cors()) 
 app.use(express.json());
 
