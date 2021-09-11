@@ -11,10 +11,4 @@ router.route("/forgotpassword").put(forgotpassword);
 
 router.route("/resetpassword/:resetToken").put(resetpassword);
 
-router.post("*", login, async ctx => {
-    await handle(ctx.req, ctx.res);
-    ctx.respond = false;
-    ctx.res.statusCode = 200;
-  });
-
 module.exports = router;
