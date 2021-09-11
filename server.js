@@ -6,17 +6,9 @@ var cors = require('cors')
 
 connectDB();
 const app = express();
-app.use(cors({ origin: true }));
-app.use((req,res, next)=>{
-    res.setHeader('Access-Control-Allow-Origin',"*");
-    res.setHeader('Access-Control-Allow-Headers',"Origin, X-Requested-With, Content-Type, Accept");
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-});
 
 app.use(express.json());
-
-
+app.use(cors());
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
