@@ -20,6 +20,10 @@ exports.register = async (req, res, next) => {
     }
 };
 
+exports.options = async (req, res, next) => {    
+    return next(res.status(200).json({ message: 'options received.' }));
+}
+
 exports.login = async (req, res, next) => {
     const { email, password } = req.body;
 
