@@ -4,8 +4,8 @@ const HttpError = require('../models/http-error');
 
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
-    console.log("salio options");
     res.status(200).json({ message: 'options received.' });
+    return next();
   }
   try {
     const token = req.headers.authorization.split(' ')[1]; // Authorization: 'Bearer TOKEN'
