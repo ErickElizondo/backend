@@ -6,7 +6,7 @@ var cors = require('cors')
 
 connectDB();
 const app=express().use('*', cors());
-
+app.options('*', cors()) 
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth'));
