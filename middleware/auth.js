@@ -4,6 +4,7 @@ const HttpError = require('../models/http-error');
 
 module.exports = (req, res, next) => {
   if (req.method === 'OPTIONS') {
+    console.log("salio options");
     return next();
   }
   try {
