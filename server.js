@@ -8,7 +8,13 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: true }));
+app.use(cors());
+app.use((req,res, next)=>{
+    res.setHeader('Access-Control-Allow-Origin',"https://testingproyectofrontend.herokuapp.com");
+    res.setHeader('Access-Control-Allow-Headers',"*");
+    res.header('Access-Control-Allow-Credentials', true);
+    next();
+});
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/private', require('./routes/private'));
